@@ -2,5 +2,10 @@
   tasks:
   - name: "copy website"
     copy:
-      src: site/
+      src: site/index.html
       dest: /var/www/default
+  - name: "replace website"
+    replace:
+      path: /var/www/default/index.html
+      regexp: "host"
+      replace: "{{ inventory_hostname }}"
